@@ -14,7 +14,7 @@ function multiplesOf3and5(number) {
         }
     }
     var answer = array.reduce((a, b) => a + b, 0);
-    // console.log(answer);
+    console.log(answer);
     return answer;
 }
 

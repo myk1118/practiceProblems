@@ -8,9 +8,40 @@
 // By considering the terms in the Fibonacci sequence whose values do not exceed n,
 // find the sum of the even-valued terms.
 
+// fiboEvenSum(10) should return 10.
+// fiboEvenSum(60) should return 44.
+// fiboEvenSum(1000) should return 798.
+// fiboEvenSum(100000) should return 60696.
+// fiboEvenSum(4000000) should return 4613732.
+// Your function should return an even value.
+
 function fiboEvenSum(n) {
     // You can do it!
-    return true;
+    const fibonacciArray = [1];
+    for (let i = 0; i < n; i++) {
+        let previousTerm = i - 1;
+        if (previousTerm < 0) {
+            previousTerm = i;
+        }
+        const num = fibonacciArray[i] + fibonacciArray[previousTerm]
+        if (num < n) {
+            fibonacciArray.push(num);
+        } else {
+            break;
+        }
+    }
+    // console.log(fibonacciArray);
+    const evenNumArray = [];
+    for (let j = 0; j < fibonacciArray.length; j++) {
+        if (fibonacciArray[j] % 2 === 0) {
+            evenNumArray.push(fibonacciArray[j])
+        }
+    }
+    // console.log(evenNumArray);
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    const sum = evenNumArray.reduce(reducer);
+    // console.log("Sum:", sum);
+    return sum;
 }
 
 fiboEvenSum(10);
