@@ -12,8 +12,16 @@
 // largestPrimeFactor(600851475143) should return 6857.
 
 function largestPrimeFactor(number) {
-    // Good luck!
-    return true;
+    let i = 2; // divisor
+    while (number > 1) {
+        if (number % i === 0) {
+            number /= i; // same as number = number / i
+        } else {
+            i++;
+        }
+    }
+    console.log(i);
+    return i;
 }
 
-largestPrimeFactor(13195);
+largestPrimeFactor(15);
